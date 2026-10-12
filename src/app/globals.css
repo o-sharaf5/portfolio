@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0b0c0e;
-  --color-ink-soft: #131518;
-  --color-paper: #edeee8;
-  --color-acid: #c6f24e;
-  --color-muted: #8a8f87;
-  --font-display: var(--font-space-grotesk);
+  --color-paper: #f4f1e8;
+  --color-paper-deep: #ece7da;
+  --color-ink: #17150f;
+  --color-ink-soft: #514d40;
+  --color-line: #d8d2c2;
+  --color-flame: #c93a1a;
+  --font-serif: var(--font-instrument);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains);
 
-  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee: marquee 32s linear infinite;
 
   @keyframes marquee {
     from {
@@ -26,25 +28,31 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-/* film-grain overlay */
+/* subtle paper grain */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 50;
+  z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {
-  background: var(--color-acid);
-  color: var(--color-ink);
+  background: var(--color-flame);
+  color: var(--color-paper);
+}
+
+.font-serif {
+  font-family: var(--font-serif), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -7,7 +7,7 @@ export type Project = {
   demoUrl: string;
   urlSlug: string;
   repoUrl: string;
-  featured: boolean;
+  image: string;
 };
 
 export const projects: Project[] = [
@@ -17,11 +17,11 @@ export const projects: Project[] = [
     tagline: "AI content scheduler · X + LinkedIn",
     description:
       "Plan on a calendar, sharpen hooks with GPT-4o-mini, and let an Inngest durable worker sleep until publish time. AES-256-GCM encrypted OAuth tokens, transactional job teardown, Clerk auth, Prisma on Postgres.",
-    stack: ["Next.js 16", "Inngest", "OpenAI", "Prisma", "Clerk", "Tailwind"],
+    stack: ["Next.js 16", "Inngest", "OpenAI", "Prisma", "Clerk"],
     demoUrl: "https://post-pulse-dun.vercel.app",
     urlSlug: "post-pulse-dun.vercel.app",
     repoUrl: "https://github.com/o-sharaf5/PostPulse",
-    featured: true,
+    image: "/shots/postpulse.png",
   },
   {
     index: "02",
@@ -33,7 +33,7 @@ export const projects: Project[] = [
     demoUrl: "https://biolink-pro-ten.vercel.app",
     urlSlug: "biolink-pro-ten.vercel.app",
     repoUrl: "https://github.com/o-sharaf5/biolink-pro",
-    featured: true,
+    image: "/shots/biolink.png",
   },
   {
     index: "03",
@@ -41,11 +41,11 @@ export const projects: Project[] = [
     tagline: "Markdown → PDF / Image / HTML",
     description:
       "A fully client-side Markdown exporter: CodeMirror 6 split editor, three typography themes, and pixel-identical multi-page A4 PDF export via canvas page-slicing. No servers, no uploads, no accounts.",
-    stack: ["Next.js 14", "TypeScript", "CodeMirror", "html2canvas", "jsPDF"],
+    stack: ["Next.js 14", "CodeMirror", "html2canvas", "jsPDF"],
     demoUrl: "https://doccraft-tau.vercel.app",
     urlSlug: "doccraft-tau.vercel.app",
     repoUrl: "https://github.com/o-sharaf5/DocCraft",
-    featured: false,
+    image: "/shots/doccraft.png",
   },
   {
     index: "04",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     demoUrl: "https://sigflow-henna.vercel.app",
     urlSlug: "sigflow-henna.vercel.app",
     repoUrl: "https://github.com/o-sharaf5/SigFlow",
-    featured: false,
+    image: "/shots/sigflow.png",
   },
 ];
 

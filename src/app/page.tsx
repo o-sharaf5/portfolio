@@ -1,31 +1,37 @@
-import { projects, stackMarquee, principles, type Project } from "@/lib/data";
+import Image from "next/image";
+import {
+  projects,
+  stackMarquee,
+  principles,
+  type Project,
+} from "@/lib/data";
 
 function Nav() {
   return (
-    <header className="fixed top-0 z-40 w-full border-b border-paper/10 bg-ink/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 font-mono text-xs tracking-widest uppercase">
-        <a href="#top" className="text-paper">
-          Omar<span className="text-acid">.</span>Sharaf
+    <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur-sm">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="#top" className="font-serif text-2xl">
+          Omar Sharaf
         </a>
-        <div className="hidden gap-8 text-muted sm:flex">
-          <a href="#work" className="transition-colors hover:text-acid">
+        <div className="hidden items-center gap-8 font-mono text-[11px] tracking-[0.2em] uppercase sm:flex">
+          <a href="#work" className="text-ink-soft transition-colors hover:text-flame">
             Work
           </a>
-          <a href="#approach" className="transition-colors hover:text-acid">
+          <a href="#approach" className="text-ink-soft transition-colors hover:text-flame">
             Approach
           </a>
-          <a href="#contact" className="transition-colors hover:text-acid">
+          <a href="#contact" className="text-ink-soft transition-colors hover:text-flame">
             Contact
           </a>
+          <a
+            href="https://github.com/o-sharaf5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-ink px-3 py-1.5 transition-colors hover:bg-ink hover:text-paper"
+          >
+            GitHub
+          </a>
         </div>
-        <a
-          href="https://github.com/o-sharaf5"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="border border-acid/40 px-3 py-1.5 text-acid transition-all hover:bg-acid hover:text-ink"
-        >
-          GitHub ↗
-        </a>
       </nav>
     </header>
   );
@@ -33,41 +39,45 @@ function Nav() {
 
 function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-svh flex-col justify-end overflow-hidden px-6 pb-24 pt-40"
-    >
-      {/* oversized ghost word */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-10 right-0 font-mono text-[26vw] leading-none font-bold text-paper/[0.03] select-none"
-      >
-        2026
+    <section id="top" className="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28">
+      {/* magazine issue line */}
+      <div className="mb-12 flex items-center justify-between border-b border-ink pb-3 font-mono text-[11px] tracking-[0.25em] uppercase">
+        <span>Portfolio — Vol. 01</span>
+        <span className="hidden sm:block">Casablanca, Morocco</span>
+        <span>Oct 2026</span>
       </div>
-      <div className="mx-auto w-full max-w-6xl">
-        <p className="mb-6 font-mono text-xs tracking-[0.3em] text-acid uppercase">
-          Full-stack web engineer · Casablanca → anywhere
+
+      <h1 className="font-serif text-[clamp(3.2rem,10vw,8.5rem)] leading-[0.95]">
+        Full-stack engineer
+        <br />
+        with a designer&apos;s
+        <br />
+        <span className="italic text-flame">eye for detail.</span>
+      </h1>
+
+      <div className="mt-14 grid gap-10 border-t border-line pt-10 sm:grid-cols-3">
+        <p className="text-lg leading-relaxed text-ink-soft sm:col-span-2">
+          I&apos;m{" "}
+          <span className="font-semibold text-ink">Omar Sharaf</span> — I build
+          web products end to end in TypeScript, React, and Next.js:
+          auth,
+          payments, job queues, and interfaces that feel considered. Four
+          projects below, every one running live right now.
         </p>
-        <h1 className="text-[clamp(3rem,11vw,9.5rem)] leading-[0.9] font-bold tracking-tight">
-          I build web
-          <br />
-          products that
-          <br />
-          <span className="text-acid">are already live.</span>
-        </h1>
-        <div className="mt-10 flex flex-wrap items-end justify-between gap-8">
-          <p className="max-w-md text-lg leading-relaxed text-muted">
-            TypeScript · React · Next.js — with auth, payments, and job queues
-            underneath. Four shipped projects, every one running in a tab you
-            can open right now.
-          </p>
-          <div className="flex items-center gap-3 font-mono text-xs tracking-widest uppercase">
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-acid opacity-60" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-acid" />
+        <div className="flex flex-col gap-4 font-mono text-xs tracking-[0.15em] uppercase">
+          <div className="flex items-center gap-3">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-flame opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-flame" />
             </span>
             Open to full-stack roles
           </div>
+          <a
+            href="#work"
+            className="text-ink-soft transition-colors hover:text-flame"
+          >
+            ↓ Read the work
+          </a>
         </div>
       </div>
     </section>
@@ -77,12 +87,12 @@ function Hero() {
 function Marquee() {
   const items = [...stackMarquee, ...stackMarquee];
   return (
-    <div className="overflow-hidden border-y border-paper/10 bg-ink-soft py-5">
-      <div className="flex w-max animate-marquee gap-10 whitespace-nowrap font-mono text-sm tracking-widest uppercase">
+    <div className="overflow-hidden border-y border-line bg-paper-deep py-4">
+      <div className="flex w-max animate-marquee items-center gap-8 whitespace-nowrap font-mono text-xs tracking-[0.2em] uppercase">
         {items.map((s, i) => (
-          <span key={i} className="flex items-center gap-10 text-muted">
+          <span key={i} className="flex items-center gap-8 text-ink-soft">
             {s}
-            <span className="text-acid">✦</span>
+            <span className="text-flame">✦</span>
           </span>
         ))}
       </div>
@@ -90,74 +100,81 @@ function Marquee() {
   );
 }
 
-function ProjectCard({ project, large }: { project: Project; large?: boolean }) {
+function ProjectSpread({ project, flip }: { project: Project; flip: boolean }) {
   return (
-    <article
-      className={`group relative flex flex-col overflow-hidden rounded-xl border border-paper/10 bg-ink-soft transition-all duration-300 hover:border-acid/50 hover:shadow-[0_0_60px_-15px] hover:shadow-acid/30 ${
-        large ? "md:col-span-2" : ""
-      }`}
-    >
-      {/* fake browser bar */}
-      <div className="flex items-center gap-3 border-b border-paper/10 px-4 py-3">
-        <span className="flex gap-1.5">
-          <span className="size-2.5 rounded-full bg-paper/15" />
-          <span className="size-2.5 rounded-full bg-paper/15" />
-          <span className="size-2.5 rounded-full bg-acid/60" />
-        </span>
-        <span className="truncate font-mono text-[11px] text-muted">
-          {project.urlSlug}
-        </span>
-      </div>
-
-      <div className="flex flex-1 flex-col p-6 sm:p-8">
-        <div className="mb-4 flex items-baseline justify-between">
-          <span className="font-mono text-xs text-muted">{project.index}</span>
-          <span className="font-mono text-[10px] tracking-widest text-acid uppercase">
-            live demo
-          </span>
-        </div>
-        <h3
-          className={`font-bold tracking-tight transition-colors group-hover:text-acid ${
-            large ? "text-4xl sm:text-5xl" : "text-2xl sm:text-3xl"
-          }`}
-        >
-          {project.name}
-        </h3>
-        <p className="mt-1.5 font-mono text-xs tracking-wide text-muted uppercase">
-          {project.tagline}
-        </p>
-        {large && (
-          <p className="mt-5 max-w-lg leading-relaxed text-muted">
-            {project.description}
-          </p>
-        )}
-        <div className="mt-auto flex flex-wrap gap-2 pt-6">
-          {project.stack.slice(0, large ? 6 : 3).map((t) => (
-            <span
-              key={t}
-              className="border border-paper/15 px-2.5 py-1 font-mono text-[10px] tracking-wider text-muted uppercase"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-        <div className="mt-6 flex items-center justify-between border-t border-paper/10 pt-4">
+    <article className="border-t border-line py-16 sm:py-20">
+      <div
+        className={`grid items-center gap-10 lg:grid-cols-2 lg:gap-16 ${
+          flip ? "lg:[&>figure]:order-2" : ""
+        }`}
+      >
+        {/* screenshot */}
+        <figure className="group relative">
           <a
             href={project.demoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono text-xs text-muted transition-colors hover:text-acid"
+            aria-label={`Open ${project.name} live demo`}
+            className="block overflow-hidden rounded-lg border border-ink/15 shadow-[0_24px_60px_-30px_rgba(23,21,15,0.45)] transition-transform duration-300 group-hover:-translate-y-1"
           >
-            → open the app
+            <Image
+              src={project.image}
+              alt={`${project.name} — ${project.tagline}`}
+              width={1600}
+              height={1000}
+              priority={project.index === "01"}
+              className="w-full"
+            />
           </a>
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-xs text-muted transition-colors hover:text-acid"
-          >
-            code ↗
-          </a>
+          <figcaption className="mt-3 flex items-center justify-between font-mono text-[10px] tracking-[0.2em] text-ink-soft uppercase">
+            <span>{project.urlSlug}</span>
+            <span className="text-flame">live ↗</span>
+          </figcaption>
+        </figure>
+
+        {/* copy */}
+        <div>
+          <div className="mb-5 flex items-baseline gap-4">
+            <span className="font-mono text-sm text-flame">
+              ({project.index})
+            </span>
+            <span className="h-px flex-1 bg-line" />
+            <span className="font-mono text-[10px] tracking-[0.25em] text-ink-soft uppercase">
+              shipped · 2026
+            </span>
+          </div>
+          <h3 className="font-serif text-5xl sm:text-6xl">{project.name}</h3>
+          <p className="mt-2 font-mono text-xs tracking-[0.15em] text-ink-soft uppercase">
+            {project.tagline}
+          </p>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
+            {project.description}
+          </p>
+          <ul className="mt-7 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] tracking-[0.15em] uppercase">
+            {project.stack.map((t) => (
+              <li key={t} className="text-ink">
+                {t}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-8 flex gap-4 font-mono text-xs tracking-[0.15em] uppercase">
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-ink px-5 py-2.5 text-paper transition-colors hover:bg-flame"
+            >
+              Live demo
+            </a>
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-ink px-5 py-2.5 transition-colors hover:bg-ink hover:text-paper"
+            >
+              Source
+            </a>
+          </div>
         </div>
       </div>
     </article>
@@ -166,43 +183,35 @@ function ProjectCard({ project, large }: { project: Project; large?: boolean }) 
 
 function Work() {
   return (
-    <section id="work" className="mx-auto max-w-6xl px-6 py-28">
-      <div className="mb-14 flex items-end justify-between">
-        <h2 className="text-5xl font-bold tracking-tight sm:text-6xl">
-          Selected <span className="text-acid">work</span>
-        </h2>
-        <span className="hidden font-mono text-xs tracking-widest text-muted uppercase sm:block">
-          04 shipped · all live
+    <section id="work" className="mx-auto max-w-6xl px-6">
+      <div className="flex items-end justify-between py-14">
+        <h2 className="font-serif text-5xl sm:text-6xl">Selected work</h2>
+        <span className="hidden font-mono text-[11px] tracking-[0.25em] text-ink-soft uppercase sm:block">
+          04 projects · 04 live demos
         </span>
       </div>
-      <div className="grid gap-5 md:grid-cols-2">
-        <ProjectCard project={projects[0]} large />
-        <ProjectCard project={projects[1]} large />
-        <ProjectCard project={projects[2]} />
-        <ProjectCard project={projects[3]} />
-      </div>
+      {projects.map((p, i) => (
+        <ProjectSpread key={p.name} project={p} flip={i % 2 === 1} />
+      ))}
     </section>
   );
 }
 
 function Approach() {
   return (
-    <section id="approach" className="border-y border-paper/10 bg-ink-soft">
-      <div className="mx-auto max-w-6xl px-6 py-28">
-        <h2 className="mb-14 text-5xl font-bold tracking-tight sm:text-6xl">
-          How I <span className="text-acid">work</span>
+    <section id="approach" className="border-t border-ink bg-ink text-paper">
+      <div className="mx-auto max-w-6xl px-6 py-24">
+        <h2 className="mb-16 font-serif text-5xl sm:text-6xl">
+          How I <span className="italic text-flame">work</span>
         </h2>
-        <div className="grid gap-px overflow-hidden rounded-xl border border-paper/10 bg-paper/10 sm:grid-cols-2">
+        <div className="grid gap-x-16 gap-y-12 sm:grid-cols-2">
           {principles.map((p) => (
-            <div
-              key={p.number}
-              className="bg-ink-soft p-8 transition-colors hover:bg-ink"
-            >
-              <div className="mb-6 font-mono text-5xl font-bold text-paper/10">
-                {p.number}
+            <div key={p.number} className="border-t border-paper/20 pt-6">
+              <div className="mb-3 font-mono text-xs tracking-[0.25em] text-flame">
+                {p.number} —
               </div>
-              <h3 className="text-xl font-bold">{p.title}</h3>
-              <p className="mt-3 leading-relaxed text-muted">{p.body}</p>
+              <h3 className="text-xl font-semibold">{p.title}</h3>
+              <p className="mt-3 leading-relaxed text-paper/60">{p.body}</p>
             </div>
           ))}
         </div>
@@ -213,26 +222,29 @@ function Approach() {
 
 function Contact() {
   return (
-    <section id="contact" className="mx-auto max-w-6xl px-6 py-32 text-center">
-      <p className="mb-6 font-mono text-xs tracking-[0.3em] text-acid uppercase">
-        Let&apos;s talk
+    <section id="contact" className="mx-auto max-w-6xl px-6 py-28 text-center">
+      <p className="mb-8 font-mono text-xs tracking-[0.3em] text-flame uppercase">
+        ✦ Let&apos;s talk
       </p>
       <a
         href="mailto:os.omarsharaf@gmail.com"
-        className="block text-[clamp(1.8rem,6vw,4.5rem)] leading-tight font-bold tracking-tight transition-colors hover:text-acid"
+        className="font-serif text-[clamp(1.9rem,6.5vw,5rem)] leading-tight transition-colors hover:text-flame"
       >
         os.omarsharaf@gmail.com
       </a>
-      <div className="mt-12 flex flex-wrap justify-center gap-8 font-mono text-sm tracking-widest uppercase">
+      <div className="mt-12 flex flex-wrap justify-center gap-8 font-mono text-xs tracking-[0.2em] uppercase">
         <a
           href="https://github.com/o-sharaf5"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-muted transition-colors hover:text-acid"
+          className="text-ink-soft underline-offset-4 transition-colors hover:text-flame hover:underline"
         >
           GitHub ↗
         </a>
-        <a href="#top" className="text-muted transition-colors hover:text-acid">
+        <a
+          href="#top"
+          className="text-ink-soft underline-offset-4 transition-colors hover:text-flame hover:underline"
+        >
           Back to top ↑
         </a>
       </div>
@@ -251,8 +263,9 @@ export default function Home() {
         <Approach />
         <Contact />
       </main>
-      <footer className="border-t border-paper/10 py-8 text-center font-mono text-xs tracking-widest text-muted uppercase">
-        © 2026 Omar Sharaf — built with Next.js · deployed on Vercel
+      <footer className="border-t border-line py-8 text-center font-mono text-[10px] tracking-[0.25em] text-ink-soft uppercase">
+        © 2026 Omar Sharaf — set in Instrument Serif &amp; Inter · built with
+        Next.js
       </footer>
     </>
   );
