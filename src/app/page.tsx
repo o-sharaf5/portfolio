@@ -43,7 +43,7 @@ function Hero() {
       {/* magazine issue line */}
       <div className="mb-12 flex items-center justify-between border-b border-ink pb-3 font-mono text-[11px] tracking-[0.25em] uppercase">
         <span>Portfolio — Vol. 01</span>
-        <span className="hidden sm:block">Casablanca, Morocco</span>
+        <span className="hidden sm:block">The Hague, Netherlands</span>
         <span>Oct 2026</span>
       </div>
 
